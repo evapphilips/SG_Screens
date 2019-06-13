@@ -9,10 +9,26 @@ let pluses = [];
 let sensitivity = 80;
 let plusImg;
 
+let video;
+let poseNet;
+let poses = [];
+
+
 function setup(){
     // setup canvas
     createCanvas(600, 600)
     background(0);
+
+    // setup video
+    video = createCapture(VIDEO);
+    video.size(width, height);
+    video.hide();
+
+    // setup posenet
+    poseNet = ml5.poseNet(video, modelReady);
+    poseNet.on('pose', function(results){
+        poses = results;
+    })
 
     // setup image
     plusImg = loadImage("plus.png");
@@ -30,25 +46,52 @@ function setup(){
 function draw(){
     background(0);
 
-    // loop through pluses array
-    for(let i=0; i<pluses.length; i++){
-        
-        let d = dist(mouseX, mouseY, pluses[i].pos.x, pluses[i].pos.y);
-        // when the mouse comes close a plus
-        if(d<sensitivity){
-            let repel = pluses[i].calculateForce();
-            repel.mult(pluses[i].mass);
-            pluses[i].applyForce(repel);
-        }else{
-            pluses[i].stop();  // slow down and stop plus once it is far enough away from the mouse
-        }
-
-        // update and show plus
-        pluses[i].update();
-        pluses[i].display();
-        
+    // draw nose from posenet
+    let point = nosePoint();
+    if(point){
+        fill(255, 0, 0);
+        ellipse(point[0], point[1], 5)
+        //console.log(point);
     }
+    
+
+    // loop through pluses array
+    if(point){
+        for(let i=0; i<pluses.length; i++){
+        
+            //let d = dist(mouseX, mouseY, pluses[i].pos.x, pluses[i].pos.y);
+            let d = dist(point[0], point[1], pluses[i].pos.x, pluses[i].pos.y);
+            // when the mouse comes close a plus
+            if(d<sensitivity){
+                let repel = pluses[i].calculateForce();
+                repel.mult(pluses[i].mass);
+                pluses[i].applyForce(repel);
+            }else{
+                pluses[i].stop();  // slow down and stop plus once it is far enough away from the mouse
+            }
+    
+            // update and show plus
+            pluses[i].update();
+            pluses[i].display();
+            
+        }
+    }
+    
     
 
 }
 
+// callback functions for posenet
+function modelReady(){
+    console.log("model ready");
+}
+
+// draw posenet nose
+function nosePoint(){
+    for(let i=0; i<poses.length; i++){
+        let keypoint = poses[i].pose.keypoints[0];
+        if(keypoint.score>0.2){
+            return [keypoint.position.x, keypoint.position.y]
+        }
+    }
+}
