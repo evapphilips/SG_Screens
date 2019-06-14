@@ -16,12 +16,12 @@ let poses = [];
 
 function setup(){
     // setup canvas
-    createCanvas(600, 600)
+    createCanvas(windowWidth, windowHeight);
     background(0);
 
     // setup video
     video = createCapture(VIDEO);
-    video.size(width, height);
+    video.size(windowWidth, windowHeight);
     video.hide();
 
     // setup posenet
@@ -34,7 +34,7 @@ function setup(){
     plusImg = loadImage("plus.png");
 
     // create pluses
-    for(let i=0; i<200; i++){
+    for(let i=0; i<500; i++){
         let x = random(width);
         let y = random(height);
         pluses.push(new Plus(plusImg));
