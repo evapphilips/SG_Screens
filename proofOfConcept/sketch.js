@@ -1,7 +1,8 @@
 // Eva Philips
 // June 13, 2019
 // This code serves as a proof of concept for a larger screen project.  This example serves to convey the visuals intended and to convey the types of interactions that are possible
-// References (dan shifman, p5, posenet?)
+// References: 
+// 1. https://ml5js.org/reference/api-PoseNet/
 
 
 // variables
