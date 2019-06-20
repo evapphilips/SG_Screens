@@ -16,15 +16,18 @@ let keypointIsDrawn = false;
 let skeletonIsDrawn = false;
 let img = false;
 
+// DOM elements
+let legendLabel;
 
 function setup(){
     // setup canvas
     let cvs = createCanvas(600, 600);
     cvs.center('horizontal');
-    console.log("hi")
 
     // setup legend
-    createP("Legend: <br>key 'P' = show/hide keypoints <br> key 'S' = show/hide skeletons <br>key 'Space' = show/hide video input");
+    legendLabel = createP("Press the following keys to toggle on/off features: <br>key 'P' = show/hide keypoints <br> key 'S' = show/hide skeletons <br>key 'Space' = show/hide video input");
+    legendLabel.position(0 , height + 50);
+    legendLabel.center('horizontal');
 
     // setup video
     video = createCapture(VIDEO);
@@ -67,7 +70,7 @@ function draw(){
     fill(255);
     textSize(100);
     textAlign(CENTER);
-    text(poses.length, width/2, height/2);
+    text("Is see ", poses.length, width/2, height/2);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
