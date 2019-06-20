@@ -19,7 +19,9 @@ let img = false;
 
 function setup(){
     // setup canvas
-    createCanvas(600, 600);
+    let cvs = createCanvas(600, 600);
+    cvs.center('horizontal');
+    console.log("hi")
 
     // setup legend
     createP("Legend: <br>key 'P' = show/hide keypoints <br> key 'S' = show/hide skeletons <br>key 'Space' = show/hide video input");
