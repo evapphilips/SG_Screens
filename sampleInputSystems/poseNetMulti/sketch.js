@@ -68,9 +68,9 @@ function draw(){
 
     // write number of people detected to screen
     fill(255);
-    textSize(100);
+    textSize(25);
     textAlign(CENTER);
-    text("Is see ", poses.length, width/2, height/2);
+    text("Is see " + poses.length + " people", width/2, 50);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
