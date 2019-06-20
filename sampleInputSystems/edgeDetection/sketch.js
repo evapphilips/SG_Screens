@@ -27,7 +27,7 @@ let spc = 60;
 function setup(){
     // canvas setup
     let cvs = createCanvas(600, 600);
-    cvs.center();
+    cvs.center('horizontal');
 
     // setup video
     video = createCapture(VIDEO);
