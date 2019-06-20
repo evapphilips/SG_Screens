@@ -67,10 +67,15 @@ function draw(){
     }
 
     // write number of people detected to screen
+    noStroke();
     fill(255);
+    rect(0, 20, width, 40);
+    fill(0);
     textSize(25);
     textAlign(CENTER);
     text("Is see " + poses.length + " people", width/2, 50);
+    
+    
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
