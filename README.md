@@ -13,4 +13,4 @@
 #### Sample Output Systems:
 1. [Shooting Star](https://evapphilips.github.io/SG_Screens/sampleOutputSystems/plusShootingStar/)
 2. [Particle System](https://evapphilips.github.io/SG_Screens/sampleOutputSystems/plusParticleSystem/)
-3. []()
+3. [Weighted Pluses](https://evapphilips.github.io/SG_Screens/sampleOutputSystems/weightedPlusSilhouette/)
