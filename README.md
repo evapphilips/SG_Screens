@@ -14,3 +14,7 @@
 1. [Shooting Star](https://evapphilips.github.io/SG_Screens/sampleOutputSystems/plusShootingStar/)
 2. [Particle System](https://evapphilips.github.io/SG_Screens/sampleOutputSystems/plusParticleSystem/)
 3. [Weighted Pluses](https://evapphilips.github.io/SG_Screens/sampleOutputSystems/weightedPlusSilhouette/)
+
+
+#### Skeleton Code Examples
+1. [Plus Brightness Mirror](https://evapphilips.github.io/SG_Screens/skeletonCode/skeleton1_brightnessMirror/)
