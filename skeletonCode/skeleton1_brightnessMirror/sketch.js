@@ -1,7 +1,7 @@
 // Eva Philips
 // July 15, 2019
 // This code provides a skeleton sketch that retrieves the brightness value of a video input and provides an example front end frontend possibility. 
-// Guidelines are provided for individuals to insert their on frontend based on brightness values. 
+// Guidelines are provided for individuals to insert their own frontend based on brightness values. 
 // References:
 // 1. This code is largely based off of the code from video: https://www.youtube.com/watch?v=rNqaw8LT2ZU
 
@@ -16,7 +16,7 @@ let pluses = [];
 
 function setup(){
     // setup canvas
-    let cvs = createCanvas(800, 800);
+    let cvs = createCanvas(windowWidth, windowHeight);
     cvs.center('horizontal');
 
     // video setup
@@ -36,10 +36,10 @@ function draw(){
     // manipulate video 
     video.loadPixels();
     loadPixels();
-    for(let i=0; i<video.height; i++){
-        for(j=0; j<video.width; j++){
+    for(let j=1; j<video.height; j++){
+        for(i=1; i<video.width; i++){
             // retrieve pixel values from video input
-            let index = (i + j * video.width)*4;
+            let index = (video.width - i + 1 + (j * video.width))*4;
             let r = video.pixels[index+0];
             let g = video.pixels[index+1];
             let b = video.pixels[index+2];
@@ -62,9 +62,10 @@ function draw(){
             rectMode(CENTER);
             fill(255);
             noStroke();
-            let th =  map(bright, 0, 255, 1, vScale);
-            rect(i*vScale, j*vScale, th, vScale-1);
-            rect(i*vScale, j*vScale, vScale-1, th);
+            let th =  map(bright, 0, 255, 1, vScale/2);
+            let w = map(bright, 0, 255, vScale-5, 0);
+            rect(i*vScale, j*vScale, th, vScale-w);
+            rect(i*vScale, j*vScale, vScale-w, th);
 
             ////////////////////////////////////////////////////////////////////////////////////
 
