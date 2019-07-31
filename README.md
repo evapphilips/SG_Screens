@@ -18,3 +18,4 @@
 
 #### Skeleton Code Examples
 1. [Plus Brightness Mirror](https://evapphilips.github.io/SG_Screens/skeletonCode/skeleton1_brightnessMirror/)
+2. [Plus Brightness Mirror](https://evapphilips.github.io/SG_Screens/skeletonCode/skeleton2_particlePlus/)
