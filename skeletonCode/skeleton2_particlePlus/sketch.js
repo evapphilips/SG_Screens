@@ -65,26 +65,35 @@ function draw(){
     background(0);
 
     // determine posenet nose position
-    let m;
+    let nosePos;
     let point = nosePoint();
     if(point){
-        m = createVector(point[0], point[1]);
+        nosePos = createVector(point[0], point[1]);
     }
 
 
-    ////////////////Insert frontend here based on no nose position /////////////////////
+    ////////////////Insert frontend here based on no nose position (x and y) /////////////////////
+    
     // Sample Output...
 
-    // draw a plus sign out of physics based particles
-    // loop through particles array and draw/update them based on nose position
+    // draw a red point at the nose position
+    // if(point){
+    //     fill(255, 0, 0);
+    //     ellipse(nosePos.x, nosePos.y, 10, 10);
+
+    // }
+
+    //draw a plus sign out of physics based particles
+    //loop through particles array and draw/update them based on nose position
     if(point){
         for(let i=0; i<particles.length; i++){
-            particles[i].behaviors(m);
+            particles[i].behaviors(nosePos);
             particles[i].update();
             particles[i].display();
     
         }
     }
+    
     ////////////////////////////////////////////////////////////////////////////////////
 }
 
