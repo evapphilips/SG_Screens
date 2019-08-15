@@ -19,3 +19,7 @@
 #### Skeleton Code Examples
 1. [Plus Brightness Mirror](https://evapphilips.github.io/SG_Screens/skeletonCode/skeleton1_brightnessMirror/)
 2. [Particle Plus](https://evapphilips.github.io/SG_Screens/skeletonCode/skeleton2_particlePlus/)
+
+
+#### In Office Demo
+1. https://evapphilips.github.io/SG_Screens/Demo/iframeTest/
